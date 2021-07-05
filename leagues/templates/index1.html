@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Word</title>
+	{%load static%}
+	<link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+	<div class="container  py-3">
+		<h1 class="text-center">Sport ORM 2</h1>
+
+		
+
+		<h1>Parte 2</h1>
+
+		<h4>1) Todos los equipos en la American Lacrosse Conference</h4>
+		{% for team in todo_equipo_american %}
+		<li>{{team.team_name}} {{team.league.name}}</li>
+		{% endfor %}
+
+
+		<h4>2)Todos los jugadores (actuales) en los Detroit Trail Blazers</h4>
+		{% for jugador in jugadores_trail %}
+		<li>{{jugador.first_name}} {{jugador.last_name}} - Team: {{jugador.curr_team.location}} {{jugador.curr_team.team_name}}</li>
+		{% endfor %}
+
+		<h4>3) Todos los jugadores (actuales) en la International Conference of Baseball atlantic</h4>
+		{% for jugador in jugadores_baseball %}
+		<li>{{jugador.first_name}} {{jugador.last_name}} - Team: {{jugador.curr_team.location}} {{jugador.curr_team.team_name}}</li>
+		{% endfor %}
+
+
+		<h4>4) Todos los jugadores (actuales) en la Transamerican Football Conference con el apellido "Richardson"</h4>
+		{% for jugador in jugadores_tamerican %}
+		<li>{{jugador.first_name}} {{jugador.last_name}} - Team: {{jugador.curr_team.location}} {{jugador.curr_team.team_name}} Conferencia: {{jugador.curr_team.league.name}}</li>
+		{% endfor %}
+
+		<h4>5) todos los jugadores de fútbol</h4>
+		{% for jugador in todo_futbol %}
+		<li>{{jugador.first_name}} {{jugador.last_name}} - Team: {{jugador.curr_team.location}} {{jugador.curr_team.team_name}} Deporte: {{jugador.curr_team.league.sport}}</li>
+		{% endfor %}
+
+		
+		<h4>6) todos los equipos con un jugador (actual) llamado "Sophia"</h4>
+		{% for team in todo_equipo_sofia %}
+		<li>Team: {{team.team_name}} Deporte: {{team.league.sport}}</li>
+		{% endfor %}
+
+		<h4>7) todas las ligas con un jugador (actual) llamado "Sophia"</h4>
+		{% for liga in todo_liga_sofia %}
+		<li> Liga : {{liga.name}}  -----  Deporte: {{liga.sport}}</li>
+		{% endfor %}
+
+		<h4>8) todos los jugadores con el apellido "Flores" que NO juegan  (actualmente) para los Washington Roughriders</h4>
+		{% for jugador in todo_jugador_no_flores %}
+		<li> Jugador: {{jugador.first_name}} {{jugador.last_name}} Equipo: {{jugador.curr_team.team_name}}</li>
+		{% endfor %}
+
+		<h4>9) todos los equipos, pasados y presentes, con los que Samuel Price ha jugado</h4>
+		{% for team in todo_equipo_samuel %}
+		<li> Equipo: {{team.team_name}} </li>
+		{% endfor %}
+
+
+		<h4>10)todos los jugadores, pasados y presentes, con los  Lakers Cleveland"  </h4>
+		{% for jugador in todo_jugador_chicago %}
+		<li> Jugador: {{jugador.first_name}} {{jugador.last_name}} </li>
+		{% endfor %}
+
+		<h4>11)todos los jugadores que anteriormente estaban (pero que no lo están) con los Miami Robots   </h4>
+		{% for jugador in todo_jugador_sino %}
+		<li> Jugador: {{jugador.first_name}} {{jugador.last_name}} </li>
+		{% endfor %}
+
+		<h4>12)cada equipo para el que Jacob Gray jugó antes de unirse a los Oregon Colts   </h4>
+		{% for team in todo_equipo_jacob %}
+		<li> Equipo : {{team.location}}  {{team.team_name}}</li>
+		{% endfor %}
+
+		<h4>13)todos llamados "Joshua" que alguna vez han jugado en la International Conference of Baseball atlantic  </h4>
+		{% for jugador in todo_jugador_joshua %}
+		<li> Jugador: {{jugador.first_name}} {{jugador.last_name}}</li>
+		{% endfor %}
+
+		<h4> 14)todos los equipos que han tenido 12 o más jugadores, pasados y presentes. (SUGERENCIA: busque la función de anotación de Django). </h4>
+		{% for team in todo_equipo_doce %}
+		<li> Equiipo: {{team.location}}  {{team.team_name}} -- cantidad= {{team.jugadores}} </li>
+		{% endfor %}
+
+		
+		<h4> 15)todos los jugadores y el número de equipos para los que jugó, ordenados por la cantidad de equipos para los que han jugado  </h4>
+		{% for jugador in todo_jugador_equipo %}
+		<li> Jugador: {{jugador.first_name}} {{jugador.last_name}} --- Cantidad= {{jugador.equipos}} </li>
+		{% endfor %}
+
+		
+
+		
+
+
+		
+
+
+
+	</div>
+
+	<script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
+</body>
+
+</html>
