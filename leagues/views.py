@@ -25,7 +25,7 @@ def index(request):
 		"jugador_apellido_cooper":Player.objects.filter(last_name="Cooper"),
 		"jugador_nombre_Joshua":Player.objects.filter(first_name="Joshua"),
 		"jugador_apellido_cooper_ex_joshua":Player.objects.filter(last_name="Cooper").exclude(first_name="joshua"),
-		"jugador_alexander_wyatt":Player.objects.extra(where=["first_name='Alexander' OR first_name='Wyatt'"]),
+		"jugador_alexander_wyatt":Player.objects.filter(Q(first_name='Alexander') | Q(first_name='Wyatt'))
 	}
 	return render(request, "index.html", context)
 
